@@ -1,0 +1,18 @@
+﻿@*26.ADIM Creating Partial View for Candy List*@
+@*//9.ADIM Adding View*@
+@*//10.ADIM Adding View Models*@
+@*15.ADIM Styling List View*@
+@*24.ADIM Adding Tag Helper*@
+@model Candy
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <img src="@Model.imageThumbnailUrl" alt="image for candy shop" />
+        <div class="caption">
+            <h3 class="pull-right">@Model.price.ToString("c")</h3>
+            <h3><a asp-controller="candy" asp-action="Details" asp-route-id="@Model.candyId">@Model.name</a></h3>
+            <h4>@Model.description</h4>
+        </div>
+    </div>
+
+</div>

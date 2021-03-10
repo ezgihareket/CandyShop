@@ -8,14 +8,5 @@
 <h1>@Model.CurrentCategory</h1>
 @foreach (var candy in Model.Candies)
 {
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        <div class="thumbnail">
-            <img src="@candy.imageThumbnailUrl" alt="image for candy shop" />
-            <div class="caption">
-                <h3 class="pull-right">@candy.price.ToString("c")</h3>
-                <h3><a asp-controller="candy" asp-action="Details" asp-route-id="@candy.candyId">@candy.name</a></h3>
-                <h4>@candy.description</h4>
-            </div>
-        </div>
-
-    </div>}
+    <partial name="_candyCard" model="candy" />
+    }
