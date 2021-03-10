@@ -1,0 +1,14 @@
+﻿@*23.ADIM Adding Details View*@
+
+@model Candy
+
+    <h1>@Model.name</h1>
+
+    <div class="thumbnail">
+        <img src="@Model.imageUrl" alt="@Model.name" />
+        <div class="caption-full">
+            <h3 class="pull-right">@Model.price</h3>
+            <h3><a href="#">@Model.name</a></h3>
+            <p>@Model.description</p>
+        </div>
+    </div>
