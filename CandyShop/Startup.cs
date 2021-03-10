@@ -1,3 +1,4 @@
+using CandyShop.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -17,6 +18,8 @@ namespace CandyShop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews(); //1.ADIM Configuration and Routing
+            services.AddScoped<ICategoryRepository, CategoryRepository>(); //6.ADIM Adding Repositories To Services
+            services.AddScoped<ICandyRepository, CandyRepository>(); //6.ADIM Adding Repositories To Services
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
