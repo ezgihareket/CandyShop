@@ -1,22 +1,23 @@
 ﻿@*//9.ADIM Adding View*@
+@*//10.ADIM Adding View Models*@
+@model CandyShop.ViewModels.CandyListViewModel
 
-@model IEnumerable<CandyShop.Models.Candy>
-
-    <html>
-    <head>
-        <meta charset="utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>Candy Shop</title>
-    </head>
-    <body>
-        @foreach (var candy in Model)
-        {
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Candy Shop</title>
+</head>
+<body>
+    <h1>@Model.CurrentCategory</h1>
+    @foreach (var candy in Model.Candies)
+    {
         <div>
             <h2>@candy.name</h2>
             <h3>@candy.price.ToString("c")</h3>
             <h4>@candy.Category.categoryName</h4>
         </div>
-        }
-    </body>
-    </html>
+    }
+</body>
+</html>

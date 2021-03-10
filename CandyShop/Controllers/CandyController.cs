@@ -1,4 +1,5 @@
 ﻿using CandyShop.Models;
+using CandyShop.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,16 @@ namespace CandyShop.Controllers
         }
 
         //8.ADIM Adding Action Methods
-        public ViewResult List()
+        public IActionResult List()
         {
-            return View(_candyRepository.getAllCandy);
+            //ViewBag.CurrentCategory = "Bestellers";
+            //return View(_candyRepository.getAllCandy);
+
+            //10.ADIM Adding View Models
+            var candyListViewModel = new CandyListViewModel();
+            candyListViewModel.Candies = _candyRepository.getAllCandy;
+            candyListViewModel.CurrentCategory = "Bestellers";
+            return View(candyListViewModel);
         }
     }
 }
