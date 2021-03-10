@@ -1,13 +1,28 @@
 ﻿<!DOCTYPE html>
 @*11.ADIM Adding Partial Layout*@
+@*14.ADIM Styling Main Layout*@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <link href="~/content/site.css" rel="stylesheet" />
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div>
-        @RenderBody()
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead">
+                    <img class="img-responsive" src="~/images/candyshoplogo9.png" />
+                </p>
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
     </div>
 </body>
 </html>
