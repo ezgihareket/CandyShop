@@ -32,5 +32,16 @@ namespace CandyShop.Controllers
             candyListViewModel.CurrentCategory = "Bestellers";
             return View(candyListViewModel);
         }
+
+        //22.ADIM Adding Details Action
+        public IActionResult Details(int id)
+        {
+            var candy = _candyRepository.getCandyById(id);
+            if (candy == null)
+            {
+                return NotFound();
+            }
+            return View(candy);
+        }
     }
 }
