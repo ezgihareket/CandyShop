@@ -18,5 +18,11 @@ namespace CandyShop.Controllers
             _candyRepository = candyRepository;
             _categoryRepository = categoryRepository;
         }
+
+        //8.ADIM Adding Action Methods
+        public ViewResult List()
+        {
+            return View(_candyRepository.getAllCandy);
+        }
     }
 }
