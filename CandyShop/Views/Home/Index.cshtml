@@ -1,0 +1,13 @@
+﻿@*28.ADIM Creating Home View*@
+
+@model HomeViewModel
+
+<partial name="_Carousel" />
+<h2>Candy On Sale</h2>
+
+<div class="row">
+    @foreach (var candy in Model.CandyOnSale)   
+    {
+        <partial name="_candyCard" model="candy" />
+    }
+</div>
