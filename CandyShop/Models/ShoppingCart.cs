@@ -1,5 +1,6 @@
 ﻿using CandyShop.Views;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -76,6 +77,12 @@ namespace CandyShop.Models
             }
             _appDbContext.SaveChanges();
             return localAmount;
+        }
+
+        //33.ADIM Getting All Items From The Cart
+        public List<ShoppingCartItem> GetShoppingCartItems()
+        {
+            return shoppingCartItems ?? (shoppingCartItems = _appDbContext.shoppingCartItems.Where(c => c.shoppingCartId == ShoppingCartId).Include(s => s.Candy).ToList());
         }
     }
 }
