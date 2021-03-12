@@ -55,5 +55,27 @@ namespace CandyShop.Models
             }
             _appDbContext.SaveChanges();
         }
+
+        //32.ADIM Removing Item From The Cart
+        public int RemoveFromCart(Candy candy)
+        {
+            var shoppingCartItem = _appDbContext.shoppingCartItems.SingleOrDefault(s => s.Candy.candyId == candy.candyId && s.shoppingCartId == ShoppingCartId);
+
+            var localAmount = 0;
+            if (shoppingCartItem != null)
+            {
+                if (shoppingCartItem.Amount >1)
+                {
+                    shoppingCartItem.Amount--;
+                    localAmount = shoppingCartItem.Amount;
+                }
+                else
+                {
+                    _appDbContext.shoppingCartItems.Remove(shoppingCartItem);
+                }
+            }
+            _appDbContext.SaveChanges();
+            return localAmount;
+        }
     }
 }
