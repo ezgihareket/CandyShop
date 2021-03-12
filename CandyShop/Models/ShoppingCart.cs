@@ -21,7 +21,7 @@ namespace CandyShop.Models
             _appDbContext = appDbContext;
         }
 
-        public static ShoppingCart getCart(IServiceProvider services)
+        public static ShoppingCart GetCart(IServiceProvider services)
         {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
 
@@ -91,6 +91,13 @@ namespace CandyShop.Models
             var cartItems = _appDbContext.shoppingCartItems.Where(c => c.shoppingCartId == ShoppingCartId);
             _appDbContext.shoppingCartItems.RemoveRange(cartItems);
             _appDbContext.SaveChanges();
+        }
+
+        //35.ADIM Calculating Total Order and Configuring Sessions
+        public decimal GetShoppingCartTotal()
+        {
+            var total = _appDbContext.shoppingCartItems.Where(c => c.shoppingCartId == ShoppingCartId).Select(c => c.Candy.price*c.Amount).Sum();
+            return total;
         }
     }
 }

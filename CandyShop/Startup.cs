@@ -33,6 +33,9 @@ namespace CandyShop
             services.AddControllersWithViews(); //1.ADIM Configuration and Routing
             services.AddScoped<ICategoryRepository, CategoryRepository>(); //6.ADIM Adding Repositories To Services
             services.AddScoped<ICandyRepository, CandyRepository>(); //6.ADIM Adding Repositories To Services
+            services.AddScoped<ShoppingCart>(sc => ShoppingCart.GetCart(sc)); //35.ADIM Calculating Total Order and Configuring Sessions
+            services.AddHttpContextAccessor(); //35.ADIM Calculating Total Order and Configuring Sessions
+            services.AddSession(); //35.ADIM Calculating Total Order and Configuring Sessions
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +48,8 @@ namespace CandyShop
             app.UseHttpsRedirection(); //1.ADIM Configuration and Routing
             app.UseStaticFiles(); //1.ADIM Configuration and Routing
             app.UseRouting();
+
+            app.UseSession(); //35.ADIM Calculating Total Order and Configuring Sessions
 
             app.UseEndpoints(endpoints =>
             {
