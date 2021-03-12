@@ -93,5 +93,13 @@ namespace CandyShop.Models
             _appDbContext.ShoppingCartItems.RemoveRange(cartItems);
             _appDbContext.SaveChanges();
         }
+        //35.ADIM Calculating Total Order and Configuring Sessions
+        public decimal GetShoppingCartTotal()
+        {
+            var total = _appDbContext.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
+                .Select(c => c.Candy.price * c.Amount).Sum();
+
+            return total;
+        }
     }
 }
