@@ -28,5 +28,28 @@ namespace CandyShop.Models
             session.SetString("CartId", cartId);
             return new ShoppingCart(context) { ShoppingCartId = cartId};
         }
+
+        //31.ADIM Adding Item To The Cart
+
+        public void AddToCart(Candy candy, int amount)
+        {
+            var shoppingCartItem = _appDbContext.ShoppingCartItems.SingleOrDefault(
+                s => s.Candy.candyId == candy.candyId && s.ShoppingCartId == ShoppingCartId);
+            if (shoppingCartItem == null)
+            {
+                shoppingCartItem = new ShoppingCartItem
+                {
+                    ShoppingCartId = ShoppingCartId,
+                    Candy = candy,
+                    Amount = amount
+                };
+                _appDbContext.ShoppingCartItems.Add(shoppingCartItem);
+            }
+            else
+            {
+                shoppingCartItem.Amount++;
+            }
+            _appDbContext.SaveChanges();
+        }
     }
 }
