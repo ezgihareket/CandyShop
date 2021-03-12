@@ -85,5 +85,13 @@ namespace CandyShop.Models
                 .Include(s => s.Candy)
                 .ToList());
         }
+
+        //34.ADIM Clear All Items From The Cart
+        public void ClearCart()
+        {
+            var cartItems = _appDbContext.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId);
+            _appDbContext.ShoppingCartItems.RemoveRange(cartItems);
+            _appDbContext.SaveChanges();
+        }
     }
 }
