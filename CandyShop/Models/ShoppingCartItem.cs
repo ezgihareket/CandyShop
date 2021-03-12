@@ -9,6 +9,7 @@ namespace CandyShop.Models
     {
         public int shoppingCartItemId { get; set; }
         public string shoppingCartId { get; set; }
+        public Candy Candy { get; set; }
         public int Amount { get; set; }
     }
 }
