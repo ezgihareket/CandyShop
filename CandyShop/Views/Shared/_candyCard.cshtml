@@ -10,9 +10,10 @@
         <img src="@Model.imageThumbnailUrl" alt="image for candy shop" />
         <div class="caption">
             <h3 class="pull-right">@Model.price.ToString("c")</h3>
-            <h3><a asp-controller="candy" asp-action="Details" asp-route-id="@Model.candyId">@Model.name</a></h3>
-            <h4>@Model.description</h4>
+            <h3><a asp-controller="Candy" asp-action="Details" asp-route-id="@Model.candyId">@Model.name</a></h3>
+            <p>@Model.description</p>
         </div>
+        
     </div>
 
 </div>
