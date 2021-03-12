@@ -18,6 +18,7 @@ namespace CandyShop.Views
 
         public DbSet<Candy> Candies { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ShoppingCartItem> shoppingCartItems { get; set; }
 
 
         //21.ADIM Seeding the Database
