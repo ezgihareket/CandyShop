@@ -1,5 +1,6 @@
 ﻿using CandyShop.Views;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -99,5 +100,7 @@ namespace CandyShop.Models
             var total = _appDbContext.shoppingCartItems.Where(c => c.shoppingCartId == ShoppingCartId).Select(c => c.Candy.price*c.Amount).Sum();
             return total;
         }
+
+        
     }
 }
