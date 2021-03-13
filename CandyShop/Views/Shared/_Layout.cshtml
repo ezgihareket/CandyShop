@@ -31,6 +31,7 @@
                         @await Component.InvokeAsync("CategoryMenu")
                         <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>  @*45.ADIM Creating Custom Email Tag Helper*@
                         @await Component.InvokeAsync("ShoppingCartSummary")
+                        <partial name="_LoginPartial" /> @*54.ADIM Implementing Login Page*@
                     </ul>
                 </div>
             </div>
@@ -45,6 +46,7 @@
                 @RenderBody()
             </div>
         </div>
+        @RenderSection("Scripts", required:false)
     </div>
 </body>
 </html>
