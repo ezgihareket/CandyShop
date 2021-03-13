@@ -29,6 +29,7 @@
                     <ul class="nav navbar-nav">
                         <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                         @await Component.InvokeAsync("CategoryMenu")
+                        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>  @*45.ADIM Creating Custom Email Tag Helper*@
                         @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
                 </div>
