@@ -41,5 +41,16 @@ namespace CandyShop.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        //38.ADIM Removing Candy To The Cart Action
+        public RedirectToActionResult RemovingFromShoppingCart(int candyId)
+        {
+            var selectedCandy = _candyRepository.getAllCandy.FirstOrDefault(c => c.candyId == candyId);
+            if (selectedCandy != null)
+            {
+                _shoppingCart.RemoveFromCart(selectedCandy);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
