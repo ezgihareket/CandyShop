@@ -4,8 +4,9 @@
 @if (Model.ShoppingCart.ShoppingCartItems.Count > 0)
 {
     <li>
-        <a>
-            <span class="glyphicon glyphicon-shopping-cart" ></span>
+        <a asp-controller="ShoppingCart" asp-action="Index">
+            @*56.ADIM Making Shopping Cart Clickable*@
+            <span class="glyphicon glyphicon-shopping-cart"></span>
             <span id="cart-status">
                 @Model.ShoppingCart.ShoppingCartItems.Count
             </span>
