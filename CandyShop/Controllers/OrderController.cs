@@ -44,5 +44,12 @@ namespace CandyShop.Controllers
             }
             return View(order);
         }
+
+        //50.ADIM Adding ThankYou Action
+        public IActionResult CheckoutComplete()
+        {
+            ViewBag.CheckoutCompleteMessage = "Thank You For Your Order. Enjoy Your Candy";
+            return View();
+        }
     }
 }
