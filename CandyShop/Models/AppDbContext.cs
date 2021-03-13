@@ -19,10 +19,11 @@ namespace CandyShop.Views
         public DbSet<Candy> Candies { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+        public DbSet<Order> Orders { get; set; } //46.ADIM Creating Order and Order Detail Models
+        public DbSet<OrderDetail> OrderDetails { get; set; } //46.ADIM Creating Order and Order Detail Models
 
 
         //21.ADIM Seeding the Database
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
