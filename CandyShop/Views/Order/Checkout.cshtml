@@ -2,12 +2,19 @@
 
 @model Order
 
+
+
 <form asp-action="Checkout" method="Post" class="form-horizontal" role="form">
     <h4>You're One Step Away From Ordering Awesome Candy</h4>
+
+    <div asp-validation-summary="All" class="danger"></div>
+
+
     <div class="form-group">
         <label asp-for="FirstName" class="col-md-2 control-label"></label>
         <div class="col-md-5">
             <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="danger"></span>
         </div>
     </div>
 
@@ -15,6 +22,7 @@
         <label asp-for="LastName" class="col-md-2 control-label"></label>
         <div class="col-md-5">
             <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="danger"></span>
         </div>
     </div>
 
@@ -22,6 +30,7 @@
         <label asp-for="Address" class="col-md-2 control-label"></label>
         <div class="col-md-5">
             <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="danger"></span>
         </div>
     </div>
 
@@ -29,6 +38,7 @@
         <label asp-for="City" class="col-md-2 control-label"></label>
         <div class="col-md-5">
             <input asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="danger"></span>
         </div>
     </div>
 
@@ -36,6 +46,7 @@
         <label asp-for="State" class="col-md-2 control-label"></label>
         <div class="col-md-5">
             <input asp-for="State" class="form-control" />
+            <span asp-validation-for="State" class="danger"></span>
         </div>
     </div>
 
@@ -43,6 +54,7 @@
         <label asp-for="ZipCode" class="col-md-2 control-label"></label>
         <div class="col-md-5">
             <input asp-for="ZipCode" class="form-control" />
+            <span asp-validation-for="ZipCode" class="danger"></span>
         </div>
     </div>
 
@@ -50,6 +62,7 @@
         <label asp-for="PhoneNumber" class="col-md-2 control-label"></label>
         <div class="col-md-5">
             <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="danger"></span>
         </div>
     </div>
 
