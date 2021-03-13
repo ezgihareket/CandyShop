@@ -1,0 +1,18 @@
+﻿@*43.ADIM Category Menu View Component*@
+@model IEnumerable<Category>
+
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown">Categories<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        @foreach (var category in Model)
+        {
+            <li>
+                <a asp-controller="Candy" asp-action="List" asp-route-category="@category.categoryName">@category.categoryName</a>
+            </li>
+        }
+        <li class="divider"></li>
+        <li>
+            <a asp-controller="Candy" asp-action="List" asp-route-category="">View All Candy</a>
+        </li>
+    </ul>
+</li>
