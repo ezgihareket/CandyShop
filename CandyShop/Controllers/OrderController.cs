@@ -24,5 +24,25 @@ namespace CandyShop.Controllers
         {
             return View();
         }
+
+        //49.ADIM Adding Checkout Action
+        [HttpPost]
+        public IActionResult Checkout(Order order)
+        {
+            _shoppingCart.ShoppingCartItems = _shoppingCart.GetShoppingCartItems();
+
+            if (_shoppingCart.ShoppingCartItems.Count ==0)
+            {
+                ModelState.AddModelError("","Your Cart is Empty");
+
+            }
+            if (ModelState.IsValid)
+            {
+                _orderRepository.CreateOrder(order);
+                _shoppingCart.ClearCart();
+                return RedirectToAction("CheckoutComplete");
+            }
+            return View(order);
+        }
     }
 }
