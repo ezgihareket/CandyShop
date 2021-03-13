@@ -1,4 +1,5 @@
 ﻿using CandyShop.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,8 @@ using System.Threading.Tasks;
 //48.ADIM Adding Checkout Form and View
 namespace CandyShop.Controllers
 {
+    //55.ADIM Adding Authorization
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly IOrderRepository _orderRepository;

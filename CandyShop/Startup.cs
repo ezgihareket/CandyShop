@@ -60,6 +60,7 @@ namespace CandyShop
             app.UseRouting();
 
             app.UseAuthentication(); //53.ADIM Adding Identity To Project
+            app.UseAuthorization(); //55.ADIM Adding Authorization
 
 
             app.UseEndpoints(endpoints =>
