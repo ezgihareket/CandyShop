@@ -21,16 +21,38 @@ namespace CandyShop.Controllers
         }
 
         //8.ADIM Adding Action Methods
-        public IActionResult List()
+        //44.ADIM Displaying Candy For Selected Category
+        public ViewResult List(string category)
         {
-            //ViewBag.CurrentCategory = "Bestellers";
-            //return View(_candyRepository.getAllCandy);
+            IEnumerable<Candy> candies;
+            string currentCategory;
+
+            if (string.IsNullOrEmpty(category))
+            {
+                candies = _candyRepository.getAllCandy.OrderBy(c => c.candyId);
+                currentCategory = "All Candy";
+            }
+            else
+            {
+                candies = _candyRepository.getAllCandy.Where(c => c.Category.categoryName == category);
+                currentCategory = _categoryRepository.getAllCategories.FirstOrDefault(c => c.categoryName == category)?.categoryName;
+            }
+
+            return View(new CandyListViewModel
+            {
+                Candies = candies,
+                CurrentCategory = currentCategory
+            });
+
+            /*ViewBag.CurrentCategory = "Bestellers";
+            return View(_candyRepository.getAllCandy);
 
             //10.ADIM Adding View Models
             var candyListViewModel = new CandyListViewModel();
             candyListViewModel.Candies = _candyRepository.getAllCandy;
             candyListViewModel.CurrentCategory = "Bestellers";
-            return View(candyListViewModel);
+            return View(candyListViewModel);*/
+
         }
 
         //22.ADIM Adding Details Action
