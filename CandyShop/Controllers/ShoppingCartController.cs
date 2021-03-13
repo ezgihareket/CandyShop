@@ -53,7 +53,7 @@ namespace CandyShop.Controllers
             return RedirectToAction("Index");
         }
 
-        //57.ADIM Clearing The Cart
+        //56.ADIM Clearing The Cart
         public RedirectToActionResult ClearCart()
         {
             _shoppingCart.ClearCart();
