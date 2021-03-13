@@ -30,5 +30,16 @@ namespace CandyShop.Controllers
             };
             return View(shoppingCartViewModel);
         }
+
+        //37.ADIM Adding Candy To The Cart Action
+        public RedirectToActionResult AddToShoppingCart(int candyId)
+        {
+            var selectedCandy = _candyRepository.getAllCandy.FirstOrDefault(c => c.candyId == candyId);
+            if (selectedCandy != null)
+            {
+                _shoppingCart.AddToCart(selectedCandy, 1);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
