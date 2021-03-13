@@ -1,31 +1,36 @@
 ﻿@*39.ADIM Shopping Cart View*@
+@*48.ADIM Adding Checkout Form and View*@
 @model ShoppingCartViewModel
 
-    <h2>Shopping Cart: All Your Candy You Love</h2>
-    <table class="table table-bordered table-striped">
-        <thead>
+<h2>Shopping Cart: All Your Candy You Love</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Selected Amount</th>
+            <th>Candy</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
+        {
             <tr>
-                <th>Selected Amount</th>
-                <th>Candy</th>
-                <th class="text-right">Price</th>
-                <th class="text-right">Subtotal</th>
+                <td class="text-center">@item.Amount</td>
+                <td class="text-left">@item.Candy.name</td>
+                <td class="text-right">@item.Candy.price.ToString("c")</td>
+                <td class="text-right">
+                    @((item.Amount * item.Candy.price).ToString("c"))
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
-            {
-                <tr>
-                    <td class="text-center">@item.Amount</td>
-                    <td class="text-left">@item.Candy.name</td>
-                    <td class="text-right">@item.Candy.price.ToString("c")</td>
-                    <td class="text-right">
-                        @((item.Amount * item.Candy.price).ToString("c"))
-                    </td>
-                </tr>
-            }
-        </tbody>
-        <tfoot>
-            <td colspan="3" class="text-right">Total</td>
-            <td class="text-right">@Model.ShoppingCartTotal.ToString("c")</td>
-        </tfoot>
-    </table>
+        }
+    </tbody>
+    <tfoot>
+    <td colspan="3" class="text-right">Total</td>
+    <td class="text-right">@Model.ShoppingCartTotal.ToString("c")</td>
+    </tfoot>
+</table>
+
+<div class="text-center">
+    <a class="btn btn-primary" asp-controller="Order" asp-action="Checkout">Checkout</a>
+</div>
