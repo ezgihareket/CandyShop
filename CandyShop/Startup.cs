@@ -54,7 +54,8 @@ namespace CandyShop
             app.UseSession(); //35.ADIM Calculating Total Order and Configuring Sessions
             app.UseRouting();
 
-            
+            app.UseAuthentication(); //53.ADIM Adding Identity To Project
+
 
             app.UseEndpoints(endpoints =>
             {

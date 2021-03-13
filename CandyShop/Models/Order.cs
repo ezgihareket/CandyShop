@@ -12,7 +12,7 @@ namespace CandyShop.Models
     public class Order
     {
         //51.ADIM Adding Input Validation
-        [BindNever]
+        
         public int OrderId { get; set; }
 
         [Required(ErrorMessage ="Please Enter Your First Name")]
