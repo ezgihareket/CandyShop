@@ -34,6 +34,9 @@ namespace CandyShop
             services.AddScoped<ICategoryRepository, CategoryRepository>(); //6.ADIM Adding Repositories To Services
             services.AddScoped<ICandyRepository, CandyRepository>(); //6.ADIM Adding Repositories To Services
             services.AddScoped<ShoppingCart>(sc => ShoppingCart.GetCart(sc)); //35.ADIM Calculating Total Order and Configuring Sessions
+
+            services.AddScoped<IOrderRepository, OrderRepository>(); //47.ADIM Implementing Order Repository
+
             services.AddHttpContextAccessor(); //35.ADIM Calculating Total Order and Configuring Sessions
             services.AddSession(); //35.ADIM Calculating Total Order and Configuring Sessions
         }
